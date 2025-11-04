@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Flow การเบิกยา - คู่มือสำหรับแพทย์</title>
+  <style>
+    :root{--bg:#f6f7fb;--card:#ffffff;--accent:#0b63d6;--muted:#6b7280}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto, "Noto Sans", "Helvetica Neue", Arial; background:var(--bg); margin:0; padding:32px; color:#0b1220}
+    .container{max-width:1000px;margin:0 auto}
+    header{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+    header h1{font-size:20px;margin:0}
+    header p{margin:0;color:var(--muted)}
+    .flow{display:flex;flex-direction:column;gap:20px}
+    .step{display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:start;background:var(--card);padding:16px;border-radius:12px;box-shadow:0 2px 8px rgba(15,23,42,0.06);position:relative}
+    .step .index{width:64px;height:64px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--accent),#0a52b8);color:#fff;font-weight:700;font-size:18px}
+    .step h3{margin:0 0 6px 0;font-size:16px}
+    .step p{margin:0;color:var(--muted)}
+    .step .actions{margin-top:10px}
+    .arrow{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;margin:0 auto;box-shadow:0 2px 6px rgba(10,13,24,0.06)}
+    .connector{height:24px;width:2px;background:linear-gradient(#cbd5e1,#e6eefc);margin:0 auto}
+    @media(min-width:900px){
+      .flow{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+      .step{grid-column:auto}
+    }
+    .card-detail{background:#fbfdff;padding:10px;border-radius:8px;margin-top:8px;border:1px solid #eef4ff}
+    .kbd{display:inline-block;background:#eef2ff;padding:4px 8px;border-radius:6px;font-family:monospace;font-size:13px}
+    footer{margin-top:24px;color:var(--muted);font-size:13px}
+    .legend{display:flex;gap:12px;align-items:center;margin-top:12px}
+    .legend .item{display:flex;gap:8px;align-items:center}
+    .dot{width:12px;height:12px;border-radius:3px;background:var(--accent)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Flow การเบิกยา (สำหรับแพทย์)</h1>
+      </div>
+    </header>
+    <main>
+      <section class="flow" aria-label="ขั้นตอนการเบิกยา">
+        <article class="step" id="step-1">
+          <div class="index">1</div>
+          <div>
+            <h3>นำบัตรประชาชนเสียบที่ Kiosk</h3>
+            <p>เลือก <strong>คลินิกอายุกรรม 308</strong> ที่เมนูบนเครื่อง Kiosk เพื่อรับใบนำทาง (กระดาษสีขาว)</p>
+            <div class="card-detail">
+              <strong>ผลลัพธ์:</strong> ใบนำทางสีขาว จะใช้ยื่นต่อในขั้นตอนการเงิน
+            </div>
+          </div>
+        </article>
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div class="connector" aria-hidden="true"></div>
+          <div class="arrow">⇩</div>
+          <div class="connector" aria-hidden="true"></div>
+        </div>
+        <article class="step" id="step-2">
+          <div class="index">2</div>
+          <div>
+            <h3>เข้าสู่ระบบโปรแกรม <span class="kbd">HISOPD</span></h3>
+            <p>ใช้คอมพิวเตอร์ที่ลงเวลาทำงานของแพทย์ (station ของแพทย์)</p>
+            <div class="card-detail">
+              <strong>2.1 Doctor Screening</strong>
+              <ul>
+                <li>กรอก <strong>HN</strong> ของผู้ป่วย</li>
+                <li>เลือก <strong>แพทย์ผู้ตรวจ</strong> (เลือกชื่อแพทย์ที่ไม่ใช่ชื่อตัวเอง)</li>
+                <li>ใส่ <strong>เวลาเข้าห้องตรวจ</strong></li>
+              </ul>
+            </div>
+            <div class="card-detail">
+              <strong>2.2</strong> ใส่ <em>Diagnosis text</em> ในช่องวินิจฉัย
+            </div>
+          </div>
+        </article>
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div class="connector" aria-hidden="true"></div>
+          <div class="arrow">⇩</div>
+          <div class="connector" aria-hidden="true"></div>
+        </div>
+        <article class="step" id="step-3">
+          <div class="index">3</div>
+          <div>
+            <h3>ทำรายการยาในแท็บ Medicine → Sub-tab: Medicine Order</h3>
+            <p>เลือกห้องยา ใส่ชื่อยา และจำนวนที่ต้องการเบิก</p>
+            <div class="card-detail">
+              <ul>
+                <li>เลือก <strong>ห้องยา</strong> ที่ต้องการให้เตรียมยา</li>
+                <li>กรอก <strong>ชื่อยา</strong> และ <strong>จำนวน</strong></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div class="connector" aria-hidden="true"></div>
+          <div class="arrow">⇩</div>
+          <div class="connector" aria-hidden="true"></div>
+        </div>
+        <article class="step" id="step-4">
+          <div class="index">4</div>
+          <div>
+            <h3>กลับไปที่หน้า Doctor Screening และเลือกรับยากลับบ้าน</h3>
+            <p>ตรวจสอบรายการยาให้ถูกต้อง แล้วเลือกตัวเลือก <strong>รับยากลับบ้าน</strong> ก่อนกดบันทึก</p>
+            <div class="card-detail">
+              <strong>สำคัญ:</strong> ตรวจสอบชื่อยา, ขนาด, และจำนวนให้ถูกต้องก่อนกด <em>บันทึก</em>
+            </div>
+          </div>
+        </article>
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div class="connector" aria-hidden="true"></div>
+          <div class="arrow">⇩</div>
+          <div class="connector" aria-hidden="true"></div>
+        </div>
+        <article class="step" id="step-5">
+          <div class="index">5</div>
+          <div>
+            <h3>นำใบนำทางสีขาวและบัตรประชาชนไปยื่นที่การเงิน</h3>
+            <p>เจ้าหน้าที่การเงินจะรับเอกสารและส่งต่อให้ห้องยาเพื่อเตรียมยา</p>
+            <div class="card-detail">
+              <strong>ทางเลือก:</strong> ผู้ป่วยสามารถรอรับยาที่ห้องยา หรือมารับยาภายหลังโดยเก็บใบนำทางไว้
+            </div>
+          </div>
+        </article>
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div class="connector" aria-hidden="true"></div>
+          <div class="arrow">⇩</div>
+          <div class="connector" aria-hidden="true"></div>
+        </div>
+        <article class="step" id="step-6">
+          <div class="index">6</div>
+          <div>
+            <h3>รับยา</h3>
+            <p>รอเรียกคิวที่ห้องยา หรือมารับตามเวลาที่สะดวกพร้อมใบนำทาง</p>
+            <div class="card-detail">
+              <strong>หากพบปัญหา:</strong> ติดต่อเจ้าหน้าที่ห้องยา หรือแผนกการเงินเพื่อขอความช่วยเหลือ
+            </div>
+          </div>
+        </article>
+      </section>
+      <footer>
+        <div class="legend">
+          <div class="item"><span class="dot"></span><span>ขั้นตอนสำคัญ</span></div>
+          <div class="item"><span class="dot" style="background:#94a3b8"></span><span>ข้อมูลช่วยเหลือ</span></div>
+        </div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
